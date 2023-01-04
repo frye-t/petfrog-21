@@ -284,3 +284,9 @@ dd div {
   width: fit-content;
   transform: translateY(40px) translateX(0) rotateZ(0);
 }
+
+input {
+  width: 10%;
+  height: 25px;
+  font: 24px 'VT323', monospace;
+}
