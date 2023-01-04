@@ -1,0 +1,21 @@
+<section>
+   <h1>Welcome to</h1>
+   <h1>TWENTY-ONE!</h1>
+</section>
+
+<% if session[:active_game] %>
+   <%= yield %>
+<% end %>
+
+<section>
+ <h4>Would you like to play a new game?</h4>
+   <section class="actions">
+      <ul>
+         <li>
+            <form action="/game/new" method="post" class="misc-button" id="new-game">
+               <button type="submit">NEW GAME</button>
+            </form>
+         </li>
+      </ul>
+   </section>
+</section>

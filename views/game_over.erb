@@ -1,0 +1,19 @@
+<% if @player.balance > 0 %>
+  <li>
+    <form action="/game/round/new" method="post" class="misc-button" id="continue">
+      <button type="submit">PLAY AGAIN!</button>
+    </form>
+  </li>
+
+  <li>
+    <form action="/game/quit" method="post" class="reset" id="quit">
+      <button type="submit">QUIT</button>
+    </form>
+  </li>
+<% else %>
+  <li>
+    <form action="/game/quit" method="post" class="reset" id="game-over">
+      <button type="submit">GAME OVER</button>
+    </form>
+  </li>
+<% end %>

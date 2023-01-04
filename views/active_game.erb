@@ -1,0 +1,72 @@
+<section>
+  <ul class="hand" id="dealer-hand">
+    <% @dealer.cards.each_with_index do |card, idx| %>
+      <li><img class="dealer-card" id="dealer-card-<%= idx %>" src="/images/<%= card %>.png"></li>
+    <% end %>
+    <div class="<%= score_class %>" id="dealer-score"><%= @dealer.total %></div>
+  </ul>
+</section>
+
+<section>
+  <h2>BLACKJACK PAYS 3:2</h2>
+  <h3>DEALER MUST STAND ON 17 AND MUST DRAW ON 16</h3>
+</section>
+
+<section>
+  <ul class="hand" id="player-hand">
+    <% @player.cards.each_with_index do |card, idx| %>
+      <li><img class="player-card" id="player-card-<%= idx %>" src="/images/<%= card %>.png"></li>
+    <% end %>
+    <div class="revealed" id="player-score"><%= @player.total %></div>
+  </ul>
+</section>
+
+<div class="floating">
+  <% if @player.busted? %>
+    <h4>BUSTED!</h4>
+  <% end %>
+</div>
+
+<div class="floating" id="blackjack">
+  <% if session[:blackjack] %>
+    <h4>BLACKJACK!</h4>
+  <% end %>
+</div>
+
+<div class="floating" id="win">
+  <% if session[:win_message] %>
+    <%= session[:win_message] %>
+  <% end %>
+</div>
+
+<div class="floating" id="lose">
+  <% if session[:lose_message] %>
+    <%= session[:lose_message] %>
+  <% end %>
+</div>
+
+<section class="actions">
+  <%= yield %>
+</section>
+
+<section class="info-bar">
+  <section>            
+    <dl>
+      <dt>
+        <div>BALANCE</div>
+      </dt>
+      <dd>
+        <div><%= @player.balance %></div>
+      </dd>
+    </dl>
+
+    <dl>
+      <dt>
+        <div>BET</div>
+      </dt>
+      <dd>
+        <div><%= @player.bet %></div>
+      </dd>
+    </dl>
+  </section>
+</section>

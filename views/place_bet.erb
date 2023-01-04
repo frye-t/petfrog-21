@@ -1,0 +1,20 @@
+<section>
+  <h4>Place your bet!</h4>
+  <form action="/game/bet" method="post" class="place-bet">
+    <input type="number" id="bet" name="bet" min="5" max="<%= @player.balance %>" value="<%= @player.bet || "5" %>">
+    <button type="submit" class="misc-button" id="bet">BET</button>
+  </form>
+</section>
+
+<section class="info-bar">
+  <section>            
+    <dl>
+      <dt>
+        <div>BALANCE</div>
+      </dt>
+      <dd>
+        <div><%= @player.balance %></div>
+      </dd>
+    </dl>
+  </section>
+</section>
