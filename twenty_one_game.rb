@@ -260,6 +260,10 @@ module CardHolder
       @stayed = true
     end
 
+    def unstay
+      @stayed = false
+    end
+
     def stayed?
       @stayed
     end
@@ -297,6 +301,7 @@ class TwentyOneGame
     self.deck = Deck.new
     deck.shuffle!
     player.nil? ? self.player = CardHolder::Player.new : player.reset
+    @player.unstay
     self.dealer = CardHolder::Dealer.new
   end
 
